@@ -39,6 +39,13 @@ use {
     'tpope/vim-fugitive'
 }
 
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
+
 -- LSP Zero
 use {
     'VonHeikemen/lsp-zero.nvim',
