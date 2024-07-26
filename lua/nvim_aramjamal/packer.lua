@@ -46,6 +46,10 @@ use {
     end
 }
 
+use {
+    'm4xshen/autoclose.nvim'
+}
+
 -- LSP Zero
 use {
     'VonHeikemen/lsp-zero.nvim',
