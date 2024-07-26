@@ -1,1 +1,1 @@
-require("nvim_aramjamal")
+require("aramjamal")
