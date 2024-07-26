@@ -17,7 +17,7 @@ require('mason-lspconfig').setup({
     },
 })
 
--- Custom lsp configs:
+-- ### Custom lsp configs: ###
 local lspconfig = require('lspconfig')
 
 -- Lua
