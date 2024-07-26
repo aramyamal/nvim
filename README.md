@@ -1,0 +1,1 @@
+My Neovim configuration using Kitty terminal emulator and [Flexoki](https://github.com/kepano/flexoki) color theme. Created with the help of ThePrimeagen's [0 to LSP : Neovim RC From Scratch](https://youtu.be/w7i4amO_zaE) tutorial video.
