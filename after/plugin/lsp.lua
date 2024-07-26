@@ -17,6 +17,9 @@ require('mason-lspconfig').setup({
     },
 })
 
+-- Map automatic code action to Alt+Enter
+vim.keymap.set("n", "<a-cr>", function() vim.lsp.buf.code_action() end)
+
 -- ### Custom lsp configs: ###
 local lspconfig = require('lspconfig')
 
