@@ -15,6 +15,13 @@ vim.keymap.set("n", "<leader>dd", function()
 	vim.cmd("silent !kitty +kitten themes --reload-in=all 'Flexoki (Dark)'")
 end)
 
+-- Map Ctrl + Backspace to delete word in insert mode
+vim.keymap.set("i", "<C-BS>", "<C-w>")
+
+-- Map Tab and Shift + Tab to indenting and deintenting in visual mode
+vim.keymap.set("v", "<S-Tab>", "<gv")
+vim.keymap.set("v", "<Tab>", ">gv")
+
 -- Move highlighted text
 vim.keymap.set("v", "J", ":m '> +1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '< -2<CR>gv=gv")
