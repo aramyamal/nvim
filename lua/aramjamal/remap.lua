@@ -18,11 +18,11 @@ end)
 -- Map Ctrl + Backspace to delete word in insert mode
 vim.keymap.set("i", "<C-BS>", "<C-w>")
 
--- Map Tab and Shift + Tab to indenting and deintenting in visual mode
+-- Map Tab and Shift + Tab to indenting and deindenting in visual mode
 vim.keymap.set("v", "<S-Tab>", "<gv")
 vim.keymap.set("v", "<Tab>", ">gv")
 
--- Move highlighted text
+-- Move highlighted text with J nd K
 vim.keymap.set("v", "J", ":m '> +1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '< -2<CR>gv=gv")
 
