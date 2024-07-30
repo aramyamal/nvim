@@ -36,5 +36,5 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Delete into system clipboard
-vim.keymap.set("n", "<leader>d", "\"+d")
 vim.keymap.set("v", "<leader>d", "\"+d")
+vim.keymap.set("n", "<leader>d", "\"+d")

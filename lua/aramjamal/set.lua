@@ -34,7 +34,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
 
 -- Guide column to not write more than 79 characters
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "81"
 
 -- Set the <leader> to " "
 vim.g.mapleader = " "
