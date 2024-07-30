@@ -18,10 +18,10 @@ require('mason-lspconfig').setup({
 })
 
 -- Map automatic code action to Alt+Enter
-vim.keymap.set("n", "<a-cr>", function() vim.lsp.buf.code_action() end)
+vim.keymap.set("n", "<A-cr>", function() vim.lsp.buf.code_action() end)
 
--- Show diagnostic of current line with Alt + D
-vim.keymap.set("n", "<a>d", function() vim.diagnostic.open_float() end)
+-- Show diagnostic of current line with <leader> + D + I
+vim.keymap.set("n", "<leader>di", function() vim.diagnostic.open_float() end)
 
 -- ### Custom cmp configs: ###
 local cmp = require('cmp')
