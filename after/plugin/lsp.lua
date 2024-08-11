@@ -10,6 +10,7 @@ end)
 --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
+    ensure_installed = { "clangd", "pylsp", "lua_ls", "rust_analyzer"},
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
