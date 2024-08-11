@@ -6,10 +6,18 @@ require("mason-nvim-dap").setup({
 })
 
 vim.keymap.set("n", "<leader>db", function() dap.toggle_breakpoint() end)
-vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
-vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
-vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
-vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
+vim.keymap.set("n", "<F9>", function() dap.toggle_breakpoint() end)
+vim.keymap.set('n', '<F5>', function() dap.continue() end)
+vim.keymap.set('n', '<F10>', function() dap.step_over() end)
+vim.keymap.set('n', '<F11>', function() dap.step_into() end)
+-- Shift + F11 = F23
+vim.keymap.set('n', '<F23>', function() dap.step_out() end)
+vim.keymap.set('n', '<F12>', function() dap.step_back() end)
+-- Shift + F5 = F17
+vim.keymap.set("n", "<F17>", function() dap.terminate() end)
+-- Ctrl + Shift + F5 = F41
+vim.keymap.set("n", "<F41>", function() dap.restart() end)
+
 
 local dapui = require("dapui")
 dapui.setup()
