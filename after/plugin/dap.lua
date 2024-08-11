@@ -15,9 +15,6 @@ vim.keymap.set('n', '<F23>', function() dap.step_out() end)
 vim.keymap.set('n', '<F12>', function() dap.step_back() end)
 -- Shift + F5 = F17
 vim.keymap.set("n", "<F17>", function() dap.terminate() end)
--- Ctrl + Shift + F5 = F41
-vim.keymap.set("n", "<F41>", function() dap.restart() end)
-
 
 local dapui = require("dapui")
 dapui.setup()
