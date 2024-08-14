@@ -5,27 +5,27 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Dark Theme gruvbox
 vim.keymap.set("n", "<leader>dg", function()
-    vim.cmd("colorscheme gruvbox-material")
     vim.o.background = "dark"
     vim.g.gruvbox_material_background = "hard"
+    vim.cmd("colorscheme gruvbox-material")
     vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Material Dark Hard'")
     vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 end)
 
 -- Light Theme gruvbox
 vim.keymap.set("n", "<leader>lg", function()
-    vim.cmd("colorscheme gruvbox-material")
     vim.o.background = "light"
     vim.g.gruvbox_material_background = "hard"
+    vim.cmd("colorscheme gruvbox-material")
     vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Material Light Hard'")
-    vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'")
+    vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'default'")
 end)
 
 -- Light Theme flexoki
 vim.keymap.set("n", "<leader>lf", function()
     vim.cmd("colorscheme flexoki-light")
     vim.cmd("silent !kitty +kitten themes --reload-in=all 'Flexoki (Light)'")
-    vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'")
+    vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'default'")
 end)
 
 -- Dark Theme flexoki
