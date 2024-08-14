@@ -5,17 +5,19 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Dark Theme gruvbox
 vim.keymap.set("n", "<leader>dg", function()
-    vim.cmd("colorscheme gruvbox")
+    vim.cmd("colorscheme gruvbox-material")
     vim.o.background = "dark"
-    vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Dark'")
+    vim.g.gruvbox_material_background = "hard"
+    vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Material Dark Hard'")
     vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 end)
 
 -- Light Theme gruvbox
 vim.keymap.set("n", "<leader>lg", function()
-    vim.cmd("colorscheme gruvbox")
+    vim.cmd("colorscheme gruvbox-material")
     vim.o.background = "light"
-    vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Light'")
+    vim.g.gruvbox_material_background = "hard"
+    vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Material Light Hard'")
     vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'")
 end)
 

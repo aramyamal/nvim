@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
         'kepano/flexoki-neovim', as = 'flexoki'
     }
 
-    use { "ellisonleao/gruvbox.nvim" }
+    use { "sainnhe/gruvbox-material"}
 
     use {
         'nvim-treesitter/nvim-treesitter',
