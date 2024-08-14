@@ -3,16 +3,34 @@ vim.g.mapleader = " "
 -- Open file explorer
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- Light Theme
-vim.keymap.set("n", "<leader>ll", function()
-	vim.cmd("colorscheme flexoki-light")
-	vim.cmd("silent !kitty +kitten themes --reload-in=all 'Flexoki (Light)'")
+-- Dark Theme gruvbox
+vim.keymap.set("n", "<leader>dg", function()
+    vim.cmd("colorscheme gruvbox")
+    vim.o.background = "dark"
+    vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Dark'")
+    vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 end)
 
--- Dark Theme
-vim.keymap.set("n", "<leader>dd", function()
-	vim.cmd("colorscheme flexoki-dark")
-	vim.cmd("silent !kitty +kitten themes --reload-in=all 'Flexoki (Dark)'")
+-- Light Theme gruvbox
+vim.keymap.set("n", "<leader>lg", function()
+    vim.cmd("colorscheme gruvbox")
+    vim.o.background = "light"
+    vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Light'")
+    vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'")
+end)
+
+-- Light Theme flexoki
+vim.keymap.set("n", "<leader>lf", function()
+    vim.cmd("colorscheme flexoki-light")
+    vim.cmd("silent !kitty +kitten themes --reload-in=all 'Flexoki (Light)'")
+    vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'")
+end)
+
+-- Dark Theme flexoki
+vim.keymap.set("n", "<leader>df", function()
+    vim.cmd("colorscheme flexoki-dark")
+    vim.cmd("silent !kitty +kitten themes --reload-in=all 'Flexoki (Dark)'")
+    vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 end)
 
 -- Map Ctrl + Backspace to delete word in insert mode

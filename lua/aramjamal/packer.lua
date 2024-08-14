@@ -19,6 +19,8 @@ return require('packer').startup(function(use)
         'kepano/flexoki-neovim', as = 'flexoki'
     }
 
+    use { "ellisonleao/gruvbox.nvim" }
+
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -73,5 +75,4 @@ return require('packer').startup(function(use)
         "rcarriga/nvim-dap-ui",
         "nvim-neotest/nvim-nio",
     }
-
 end)

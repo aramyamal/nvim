@@ -100,6 +100,11 @@ _G.packer_plugins = {
     path = "/home/aramjamal/.local/share/nvim/site/pack/packer/start/flexoki",
     url = "https://github.com/kepano/flexoki-neovim"
   },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/home/aramjamal/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/aramjamal/.local/share/nvim/site/pack/packer/start/harpoon",
