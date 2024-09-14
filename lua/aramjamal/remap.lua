@@ -19,6 +19,7 @@ vim.keymap.set("n", "<leader>lg", function()
     vim.cmd("colorscheme gruvbox-material")
     vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Material Light Hard'")
     vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'default'")
+    -- vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'")
 end)
 
 -- Light Theme flexoki

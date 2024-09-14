@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
         'kepano/flexoki-neovim', as = 'flexoki'
     }
 
-    use { "sainnhe/gruvbox-material"}
+    use { "sainnhe/gruvbox-material" }
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -49,7 +49,11 @@ return require('packer').startup(function(use)
     }
 
     use {
-        'm4xshen/autoclose.nvim'
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
     }
 
     -- LSP Zero
@@ -75,4 +79,14 @@ return require('packer').startup(function(use)
         "rcarriga/nvim-dap-ui",
         "nvim-neotest/nvim-nio",
     }
+
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function()
+            vim.g.mkdp_filetypes = {
+                "markdown" }
+        end,
+        ft = { "markdown" },
+    })
 end)
