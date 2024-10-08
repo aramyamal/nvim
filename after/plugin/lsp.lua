@@ -10,7 +10,7 @@ end)
 --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { "clangd", "pylsp", "lua_ls", "rust_analyzer"},
+    ensure_installed = { "clangd", "pylsp", "lua_ls", "rust_analyzer", "html" },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -23,6 +23,10 @@ vim.keymap.set("n", "<A-cr>", function() vim.lsp.buf.code_action() end)
 
 -- Show diagnostic of current line with <leader> + D + I
 vim.keymap.set("n", "<leader>di", function() vim.diagnostic.open_float() end)
+
+-- Jump to next diagnostic with g + [ or g + ]
+vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
+vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
 
 -- ### Custom cmp configs: ###
 local cmp = require('cmp')
