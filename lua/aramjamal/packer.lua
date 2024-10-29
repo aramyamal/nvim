@@ -89,4 +89,11 @@ return require('packer').startup(function(use)
         end,
         ft = { "markdown" },
     })
+
+    use({
+        "epwalsh/obsidian.nvim",
+        tag = "*", -- recommended, use latest release instead of latest commit
+    })
+
+    use {'jbyuki/nabla.nvim'}
 end)
