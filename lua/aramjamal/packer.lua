@@ -95,5 +95,8 @@ return require('packer').startup(function(use)
         tag = "*", -- recommended, use latest release instead of latest commit
     })
 
-    use {'jbyuki/nabla.nvim'}
+    use { 'jbyuki/nabla.nvim' }
+
+    use { 'nfrid/markdown-togglecheck' }
+    use { 'nfrid/treesitter-utils' }
 end)

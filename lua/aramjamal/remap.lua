@@ -15,7 +15,7 @@ end)
 -- Light Theme gruvbox
 vim.keymap.set("n", "<leader>lg", function()
     vim.o.background = "light"
-    vim.g.gruvbox_material_background = "hard"
+    vim.g.gruvbox_material_background = "medium"
     vim.cmd("colorscheme gruvbox-material")
     vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Material Light Hard'")
     vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'default'")
