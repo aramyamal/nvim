@@ -200,6 +200,11 @@ _G.packer_plugins = {
     path = "/home/aramjamal/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tmux.nvim"] = {
+    loaded = true,
+    path = "/home/aramjamal/.local/share/nvim/site/pack/packer/start/tmux.nvim",
+    url = "https://github.com/aserowy/tmux.nvim"
+  },
   ["treesitter-utils"] = {
     loaded = true,
     path = "/home/aramjamal/.local/share/nvim/site/pack/packer/start/treesitter-utils",

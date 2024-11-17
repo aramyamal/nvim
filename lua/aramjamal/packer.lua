@@ -99,4 +99,7 @@ return require('packer').startup(function(use)
 
     use { 'nfrid/markdown-togglecheck' }
     use { 'nfrid/treesitter-utils' }
+    use({
+        "aserowy/tmux.nvim",
+    })
 end)
