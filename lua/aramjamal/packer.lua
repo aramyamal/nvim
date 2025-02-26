@@ -95,6 +95,8 @@ return require('packer').startup(function(use)
         tag = "*", -- recommended, use latest release instead of latest commit
     })
 
+    use "nvim-lua/plenary.nvim"
+
     use { 'jbyuki/nabla.nvim' }
 
     use { 'nfrid/markdown-togglecheck' }
@@ -112,4 +114,5 @@ return require('packer').startup(function(use)
     use 'echasnovski/mini.icons'
     use 'nvim-tree/nvim-web-devicons'
 
+    use "3rd/image.nvim"
 end)

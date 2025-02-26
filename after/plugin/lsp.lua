@@ -34,8 +34,7 @@ local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
     mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = cmp_action.luasnip_supertab(),
-        ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
         ['<C-j>'] = cmp_action.luasnip_supertab(),
         ['<C-k>'] = cmp_action.luasnip_shift_supertab()
     }),
@@ -74,6 +73,25 @@ lspconfig.lua_ls.setup {
         }
     }
 }
+
+-- lspconfig.ts_ls.setup {
+--     settings = {
+--         typescript = {
+--             format = {
+--                 indentSize = 2,
+--                 tabSize = 2,
+--                 convertTabsToSpaces = true,
+--             },
+--         },
+--         javascript = {
+--             format = {
+--                 indentSize = 2,
+--                 tabSize = 2,
+--                 convertTabsToSpaces = true,
+--             },
+--         },
+--     },
+-- }
 
 -- From https://lsp-zero.netlify.app/v3.x/blog/theprimeagens-config-from-2022.html
 -- vim.api.nvim_create_autocmd('LspAttach', {
