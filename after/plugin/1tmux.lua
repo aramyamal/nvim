@@ -60,7 +60,8 @@ require("tmux").setup({
             -- sets resize steps for y axis
             resize_step_y = 1,
         }
-    }
+    },
+    debug = false
 })
 vim.keymap.set('n', '<C-S-h>', [[<cmd>lua require("tmux").move_left()<cr>]], { silent = true })
 vim.keymap.set('n', '<C-S-j>', [[<cmd>lua require("tmux").move_bottom()<cr>]], { silent = true })
@@ -71,3 +72,8 @@ vim.keymap.set('n', '<C-M-h>',  [[<cmd>lua require("tmux").resize_left()<cr>]], 
 vim.keymap.set('n', '<C-M-j>',  [[<cmd>lua require("tmux").resize_bottom()<cr>]], { silent = true })
 vim.keymap.set('n', '<C-M-k>',  [[<cmd>lua require("tmux").resize_top()<cr>]], { silent = true })
 vim.keymap.set('n', '<C-M-l>',  [[<cmd>lua require("tmux").resize_right()<cr>]], { silent = true })
+
+vim.keymap.set('n', '<C-M-y>',  [[<cmd>lua require("tmux").swap_left()<cr>]], { silent = true })
+vim.keymap.set('n', '<C-M-u>',  [[<cmd>lua require("tmux").swap_bottom()<cr>]], { silent = true })
+vim.keymap.set('n', '<C-M-i>',  [[<cmd>lua require("tmux").swap_top()<cr>]], { silent = true })
+vim.keymap.set('n', '<C-M-o>',  [[<cmd>lua require("tmux").swap_right()<cr>]], { silent = true })

@@ -1,5 +1,18 @@
 local lsp_zero = require('lsp-zero')
 
+-- auto format on save / write
+vim.api.nvim_create_augroup("AutoFormat", {})
+vim.api.nvim_create_autocmd(
+    "BufWritePost",
+    {
+        pattern = { "*.lua", "*.go", "*.ts", "*.cpp" },
+        group = "AutoFormat",
+        callback = function()
+            vim.lsp.buf.format()
+        end,
+    }
+)
+
 lsp_zero.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
@@ -10,7 +23,7 @@ end)
 --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { "clangd", "pylsp", "lua_ls", "rust_analyzer", "html" },
+    ensure_installed = { "gopls", "clangd", "pylsp", "lua_ls", "rust_analyzer", "html" },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -73,7 +86,6 @@ lspconfig.lua_ls.setup {
         }
     }
 }
-
 -- lspconfig.ts_ls.setup {
 --     settings = {
 --         typescript = {

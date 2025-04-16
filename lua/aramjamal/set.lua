@@ -1,3 +1,7 @@
+-- highlight
+vim.opt.cuc = true
+vim.opt.cul = true
+
 -- Line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true

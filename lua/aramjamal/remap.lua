@@ -10,6 +10,7 @@ vim.keymap.set("n", "<leader>dg", function()
     vim.cmd("colorscheme gruvbox-material")
     vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Material Dark Hard'")
     vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
+    vim.cmd("silent !bash -c '$TMUX_DARK'")
 end)
 
 -- Light Theme gruvbox
@@ -19,7 +20,7 @@ vim.keymap.set("n", "<leader>lg", function()
     vim.cmd("colorscheme gruvbox-material")
     vim.cmd("silent !kitty +kitten themes --reload-in=all 'Gruvbox Material Light Soft'")
     vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'default'")
-    -- vim.cmd("silent !gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'")
+    vim.cmd("silent !bash -c '$TMUX_LIGHT'")
 end)
 
 -- Light Theme flexoki
