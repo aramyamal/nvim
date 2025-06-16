@@ -42,3 +42,6 @@ vim.opt.colorcolumn = "81"
 
 -- Set the <leader> to " "
 vim.g.mapleader = " "
+
+-- Make command line height invisible
+vim.opt.cmdheight = 0

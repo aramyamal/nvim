@@ -28,11 +28,16 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use {
-        'kepano/flexoki-neovim', as = 'flexoki'
-    }
+    use({
+        "neanias/everforest-nvim",
+        config = function()
+            require("everforest").setup({
+                background = "medium",
+                italics = true,
+            })
+        end,
+    })
 
-    use { "sainnhe/gruvbox-material" }
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -103,11 +108,6 @@ return require('packer').startup(function(use)
         ft = { "markdown" },
     })
 
-    use({
-        "epwalsh/obsidian.nvim",
-        tag = "*", -- recommended, use latest release instead of latest commit
-    })
-
     use "nvim-lua/plenary.nvim"
 
     use { 'jbyuki/nabla.nvim' }
@@ -128,6 +128,15 @@ return require('packer').startup(function(use)
     use 'nvim-tree/nvim-web-devicons'
 
     use "3rd/image.nvim"
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+
+    use "RRethy/base16-nvim"
+
+    use "lewis6991/gitsigns.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

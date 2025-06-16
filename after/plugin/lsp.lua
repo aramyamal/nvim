@@ -5,7 +5,7 @@ vim.api.nvim_create_augroup("AutoFormat", {})
 vim.api.nvim_create_autocmd(
     "BufWritePost",
     {
-        pattern = { "*.lua", "*.go", "*.ts", "*.cpp" },
+        pattern = { "*.lua", "*.go", "*.ts", "*.cpp", "*.c", "*.h, *.ts, *.js, *.html, *.css" },
         group = "AutoFormat",
         callback = function()
             vim.lsp.buf.format()
@@ -35,7 +35,12 @@ require('mason-lspconfig').setup({
 vim.keymap.set("n", "<A-cr>", function() vim.lsp.buf.code_action() end)
 
 -- Show diagnostic of current line with <leader> + D + I
-vim.keymap.set("n", "<leader>di", function() vim.diagnostic.open_float() end)
+vim.keymap.set(
+    "n",
+    "<leader>di",
+    function() vim.diagnostic.open_float() end,
+    { desc = "LSP: Show Line Diagnostics" }
+)
 
 -- Jump to next diagnostic with g + [ or g + ]
 vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
@@ -60,6 +65,84 @@ cmp.setup({
 
 -- ### Custom lsp configs: ###
 local lspconfig = require('lspconfig')
+
+-- C
+-- lspconfig.clangd.setup({
+--     cmd = {
+--         "clangd",
+--         "--background-index",
+--         "-j=12",
+--         "--query-driver=/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+--         "--clang-tidy",
+--         "--clang-tidy-checks=*",
+--         "--all-scopes-completion",
+--         "--cross-file-rename",
+--         "--completion-style=detailed",
+--         "--header-insertion-decorators",
+--         "--header-insertion=iwyu",
+--         "--pch-storage=memory",
+--     },
+-- })
+--
+-- lspconfig.ts_ls.setup {
+--     settings = {
+--         typescript = {
+--             format = {
+--                 indentSize = 2,
+--                 tabSize = 2,
+--                 convertTabsToSpaces = true,
+--             },
+--         },
+--         javascript = {
+--             format = {
+--                 indentSize = 2,
+--                 tabSize = 2,
+--                 convertTabsToSpaces = true,
+--             },
+--         },
+--     },
+-- }
+
+
+-- -- TypeScript
+-- lspconfig.ts_ls.setup({
+--     settings = {
+--         typescript = {
+--             inlayHints = {
+--                 includeInlayParameterNameHints = "none",
+--                 includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+--                 includeInlayFunctionParameterTypeHints = true,
+--                 includeInlayVariableTypeHints = true,
+--                 includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+--                 includeInlayPropertyDeclarationTypeHints = true,
+--                 includeInlayFunctionLikeReturnTypeHints = true,
+--                 includeInlayEnumMemberValueHints = true,
+--             },
+--             format = {
+--                 indentSize = 2,
+--                 tabSize = 2,
+--                 convertTabsToSpaces = true,
+--             },
+--         },
+--         javascript = {
+--             inlayHints = {
+--                 includeInlayParameterNameHints = "none",
+--                 includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+--                 includeInlayFunctionParameterTypeHints = true,
+--                 includeInlayVariableTypeHints = true,
+--                 includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+--                 includeInlayPropertyDeclarationTypeHints = true,
+--                 includeInlayFunctionLikeReturnTypeHints = true,
+--                 includeInlayEnumMemberValueHints = true,
+--             },
+--             format = {
+--                 indentSize = 2,
+--                 tabSize = 2,
+--                 convertTabsToSpaces = true,
+--             },
+--         },
+--     },
+-- })
 
 -- -- Java
 -- lspconfig.java_language_server.setup {
@@ -86,25 +169,6 @@ lspconfig.lua_ls.setup {
         }
     }
 }
--- lspconfig.ts_ls.setup {
---     settings = {
---         typescript = {
---             format = {
---                 indentSize = 2,
---                 tabSize = 2,
---                 convertTabsToSpaces = true,
---             },
---         },
---         javascript = {
---             format = {
---                 indentSize = 2,
---                 tabSize = 2,
---                 convertTabsToSpaces = true,
---             },
---         },
---     },
--- }
-
 -- From https://lsp-zero.netlify.app/v3.x/blog/theprimeagens-config-from-2022.html
 -- vim.api.nvim_create_autocmd('LspAttach', {
 --   group = vim.api.nvim_create_augroup('user_lsp_attach', {clear = true}),
