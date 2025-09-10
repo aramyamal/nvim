@@ -1,6 +1,6 @@
 require("aramjamal.remap")
 require("aramjamal.set")
-require("aramjamal.packer")
+require("aramjamal.pckr")
 
 -- Automatically adjust theme of nvim according to system theme
 vim.o.background = "light"
