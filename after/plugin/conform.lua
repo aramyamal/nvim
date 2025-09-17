@@ -1,0 +1,15 @@
+require("conform").setup({
+    formatters_by_ft = {
+        -- You can customize some of the format options for the filetype (:help conform.format)
+        rust = { "rustfmt", lsp_format = "fallback" },
+        -- Conform will run the first available formatter
+        markdown = { "prettierd", "prettier", stop_after_first = true },
+    },
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.md",
+    callback = function(args)
+        require("conform").format({ bufnr = args.buf })
+    end,
+})

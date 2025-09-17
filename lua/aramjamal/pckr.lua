@@ -16,15 +16,11 @@ end
 
 bootstrap_pckr()
 
+local cmd = require('pckr.loader.cmd')
 require('pckr').add {
-    -- Packer can manage itself
-    {
-        'wbthomason/packer.nvim'
-    },
 
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.8',
-        -- or                            , branch = '0.1.x',
+        'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
     },
 
@@ -38,13 +34,13 @@ require('pckr').add {
         end,
     },
 
-
     {
         'nvim-treesitter/nvim-treesitter',
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
+
     },
 
     {
@@ -98,19 +94,7 @@ require('pckr').add {
         "nvim-neotest/nvim-nio",
     },
 
-    {
-        "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
-        setup = function()
-            vim.g.mkdp_filetypes = {
-                "markdown" }
-        end,
-        ft = { "markdown" },
-    },
-
     "nvim-lua/plenary.nvim",
-
-    { 'jbyuki/nabla.nvim' },
 
     { 'nfrid/markdown-togglecheck' },
     { 'nfrid/treesitter-utils' },
@@ -150,4 +134,28 @@ require('pckr').add {
         event = "BufReadPre" -- this will only start session saving when an actual file was opened
     },
 
+    "stevearc/conform.nvim",
+
+    "sebostien/spin.nvim",
+
+    {
+        "toppair/peek.nvim",
+        run = "deno task --quiet build:fast"
+
+    },
+
+    "sontungexpt/stcursorword",
+
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+        run = "make install_jsregexp",
+        requires = "rafamadriz/friendly-snippets"
+    },
+
+    "rafamadriz/friendly-snippets",
+
+    'saadparwaiz1/cmp_luasnip',
 }

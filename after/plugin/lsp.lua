@@ -64,18 +64,40 @@ vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
 
 -- ### Custom cmp configs: ###
 local cmp = require('cmp')
+local ls = require('luasnip')
 local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
-    mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-j>'] = cmp_action.luasnip_supertab(),
-        ['<C-k>'] = cmp_action.luasnip_shift_supertab()
-    }),
+    mapping = {
+        -- Tab: if completion menu is visible, confirm selection; else, behave like supertab
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.confirm({ select = true })
+            elseif ls.expand_or_jumpable() then
+                ls.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+
+        -- Shift-Tab: jump backward in snippet
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if ls.jumpable(-1) then
+                ls.jump(-1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+    },
     snippet = {
         expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            ls.lsp_expand(args.body)
         end,
+    },
+    sources = {
+            { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        -- more sources
     },
     experimental = {
         ghost_text = true,

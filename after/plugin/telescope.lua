@@ -1,23 +1,34 @@
 local builtin = require('telescope.builtin')
 vim.keymap.set(
-  'n',
-  '<leader>ff',
-  builtin.find_files,
-  { desc = "Telescope: Find Files" }
+    'n',
+    '<leader>ff',
+    builtin.find_files,
+    { desc = "Telescope: Find Files" }
 )
 
 vim.keymap.set(
-  'n',
-  '<leader>fh',
-  builtin.git_files,
-  { desc = "Telescope: Find Git Files" }
+    'n',
+    '<leader>fh',
+    builtin.git_files,
+    { desc = "Telescope: Find Git Files" }
 )
 
 vim.keymap.set(
-  'n',
-  '<leader>fg',
-  builtin.live_grep,
-  { desc = "Telescope: Live Grep" }
+    'n',
+    '<leader>fg',
+    builtin.live_grep,
+    { desc = "Telescope: Live Grep" }
+)
+
+vim.keymap.set(
+    'n',
+    '<leader>fc',
+    function()
+        require('telescope.builtin').find_files({
+            cwd = '~/.config/nvim'
+        })
+    end,
+    { desc = "Telescope: Find Config Files" }
 )
 
 -- Map ? to Telescope keymaps
