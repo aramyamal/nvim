@@ -160,26 +160,28 @@ require('pckr').add {
     'saadparwaiz1/cmp_luasnip',
 
     {
-    "rachartier/tiny-code-action.nvim",
-    requires = {
-        "nvim-lua/plenary.nvim",
-        -- optional picker via telescope
-        "nvim-telescope/telescope.nvim",
-        -- optional picker via fzf-lua
-        "ibhagwan/fzf-lua",
-        -- .. or via snacks
-        {
-            "folke/snacks.nvim",
-            config = function()
-                require("snacks").setup({
-                    terminal = {},
-                })
-            end
-        }
+        "rachartier/tiny-code-action.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            -- optional picker via telescope
+            "nvim-telescope/telescope.nvim",
+            -- optional picker via fzf-lua
+            "ibhagwan/fzf-lua",
+            -- .. or via snacks
+            {
+                "folke/snacks.nvim",
+                config = function()
+                    require("snacks").setup({
+                        terminal = {},
+                    })
+                end
+            }
+        },
+        event = "LspAttach",
+        config = function()
+            require("tiny-code-action")
+        end,
     },
-    event = "LspAttach",
-    config = function()
-        require("tiny-code-action")
-    end,
-}
+
+    "akinsho/toggleterm.nvim",
 }

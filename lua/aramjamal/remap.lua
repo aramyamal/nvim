@@ -52,3 +52,5 @@ vim.keymap.set("i", "<C-o>", function()
     -- Insert actual newline
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", true)
 end, { silent = true })
+
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = "Exit terminal mode" })
