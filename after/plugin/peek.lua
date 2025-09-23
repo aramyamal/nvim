@@ -29,14 +29,25 @@ require('peek').setup({
 vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
 vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
 
-vim.keymap.set('n', '<leader>md', ':PeekOpen<CR>', {
+vim.keymap.set('n', '<leader>mD', ':PeekOpen<CR>', {
     silent = true,
     noremap = true,
     desc = 'Peek: Open Markdown preview'
 })
 
-vim.keymap.set('n', '<leader>mD', ':PeekClose<CR>', {
+local function toggle_markdown_preview()
+    local peek = require('peek')
+    if peek.is_open() then
+        peek.close()
+    else
+        peek.open()
+    end
+end
+
+vim.api.nvim_create_user_command("PeekToggle", toggle_markdown_preview, {})
+
+vim.keymap.set('n', '<leader>md', toggle_markdown_preview, {
     silent = true,
     noremap = true,
-    desc = 'Peek: Close Markdown preview'
+    desc = 'Peek: Toggle Markdown preview'
 })

@@ -5,7 +5,7 @@ vim.api.nvim_create_augroup("AutoFormat", {})
 vim.api.nvim_create_autocmd(
     "BufWritePost",
     {
-        pattern = { "*.rs", "*.lua", "*.go", "*.ts", "*.cpp", "*.c", "*.h, *.ts, *.js, *.html, *.css" },
+        pattern = { "*.rs", "*.lua", "*.go", "*.ts", "*.cpp", "*.h, *.ts, *.js, *.html, *.css" },
         group = "AutoFormat",
         callback = function()
             vim.lsp.buf.format()
@@ -46,9 +46,6 @@ require('mason-lspconfig').setup({
         end,
     },
 })
-
--- Map automatic code action to Alt+Enter
-vim.keymap.set("n", "<A-cr>", function() vim.lsp.buf.code_action() end)
 
 -- Show diagnostic of current line with <leader> + D + I
 vim.keymap.set(
@@ -95,7 +92,7 @@ cmp.setup({
         end,
     },
     sources = {
-            { name = 'nvim_lsp' },
+        { name = 'nvim_lsp' },
         { name = 'luasnip' },
         -- more sources
     },
