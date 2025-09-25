@@ -184,4 +184,6 @@ require('pckr').add {
     },
 
     "akinsho/toggleterm.nvim",
+
+    "sindrets/diffview.nvim" ,
 }

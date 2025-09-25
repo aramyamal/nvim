@@ -54,3 +54,6 @@ vim.keymap.set("i", "<C-o>", function()
 end, { silent = true })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = "Exit terminal mode" })
+
+-- Close current tab with Ctrl+Q
+vim.keymap.set("n", "<C-q>", ":tabclose<CR>", { desc = "Close current tab" })
