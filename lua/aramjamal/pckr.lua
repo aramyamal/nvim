@@ -185,5 +185,8 @@ require('pckr').add {
 
     "akinsho/toggleterm.nvim",
 
-    "sindrets/diffview.nvim" ,
+    "sindrets/diffview.nvim",
+
+    { "barreiroleo/ltex-extra.nvim" },
+
 }

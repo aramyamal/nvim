@@ -25,27 +25,40 @@ local lspconfig = require('lspconfig')
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = { "gopls", "clangd", "pylsp", "lua_ls", "rust_analyzer", "html" },
-    handlers = {
-        function(server_name)
-            if server_name == 'rust_analyzer' then
-                lspconfig.rust_analyzer.setup({
-                    settings = {
-                        ["rust-analyzer"] = {
-                            diagnostics = {
-                                enable = true,
-                                experimental = {
-                                    enable = true,
-                                },
-                            },
-                        },
-                    },
-                })
-            else
-                lspconfig[server_name].setup({})
-            end
-        end,
+    automatic_enable = {
+        exclude = {
+            "ltex_plus",
+        }
+    }
+})
+
+lspconfig.ltex_plus.setup({
+    name = "ltex",
+    on_attach = function(client, bufnr)
+        -- rest of your on_attach process.
+        require("ltex_extra").setup {
+            load_langs = {
+                "en-US",
+                "en-GB",
+                "sv",
+                "de",
+            },
+            path = vim.fn.expand('~') .. '/.local/share/ltex',
+        }
+    end,
+    settings = {
+        ltex = {
+            disabledRules = {
+                ['en-US'] = { 'PROFANITY' },
+                ['en-GB'] = { 'PROFANITY' },
+                ['sv'] = { 'PROFANITY' },
+                ['de'] = { 'PROFANITY' },
+            },
+        },
     },
 })
+lspconfig.ltex = lspconfig.ltex_plus
+vim.lsp.enable('ltex')
 
 -- Show diagnostic of current line with <leader> + D + I
 vim.keymap.set(
