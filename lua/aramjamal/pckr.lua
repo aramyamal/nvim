@@ -127,7 +127,7 @@ require('pckr').add {
         "dustinblackman/oatmeal.nvim",
     },
 
-    'norcalli/nvim-colorizer.lua',
+    'brenoprata10/nvim-highlight-colors',
 
     {
         "folke/persistence.nvim",
@@ -167,15 +167,6 @@ require('pckr').add {
             "nvim-telescope/telescope.nvim",
             -- optional picker via fzf-lua
             "ibhagwan/fzf-lua",
-            -- .. or via snacks
-            {
-                "folke/snacks.nvim",
-                config = function()
-                    require("snacks").setup({
-                        terminal = {},
-                    })
-                end
-            }
         },
         event = "LspAttach",
         config = function()
@@ -189,4 +180,11 @@ require('pckr').add {
 
     { "barreiroleo/ltex-extra.nvim" },
 
+    "folke/snacks.nvim",
+
+    "nvim-mini/mini.indentscope",
+
+    "obsidian-nvim/obsidian.nvim",
+
+    "mlr-msft/vim-loves-dafny",
 }

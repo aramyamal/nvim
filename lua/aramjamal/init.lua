@@ -10,6 +10,8 @@ if system_theme == "dark" then
     -- then load the blackgaze theme to adjust the rest
     vim.api.nvim_create_autocmd("VimEnter", {
         callback = function()
+            -- vim.o.background = "dark"
+
             vim.cmd("colorscheme base16-blackgaze")
         end,
     })

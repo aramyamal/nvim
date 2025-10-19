@@ -19,3 +19,4 @@ vim.keymap.set('n', '<leader>tr', '<cmd>ToggleTermSetName<cr>',
     vim.tbl_extend('force', opts, { desc = 'ToggleTerm: Rename terminal' }))
 
 vim.keymap.set('t', '<C-k>', '<Cmd>wincmd k<CR>', { noremap = true, silent = true })
+vim.keymap.set('t', '<C-h>', '<Cmd>wincmd h<CR>', { noremap = true, silent = true })
