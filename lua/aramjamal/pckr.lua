@@ -86,13 +86,11 @@ require('pckr').add {
     "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
 
     -- DAP
-    {
-        "williamboman/mason.nvim",
-        "mfussenegger/nvim-dap",
-        "jay-babu/mason-nvim-dap.nvim",
-        "rcarriga/nvim-dap-ui",
-        "nvim-neotest/nvim-nio",
-    },
+    "williamboman/mason.nvim",
+    "mfussenegger/nvim-dap",
+    "jay-babu/mason-nvim-dap.nvim",
+    "rcarriga/nvim-dap-ui",
+    "nvim-neotest/nvim-nio",
 
     "nvim-lua/plenary.nvim",
 
@@ -141,7 +139,6 @@ require('pckr').add {
     {
         "toppair/peek.nvim",
         run = "deno task --quiet build:fast"
-
     },
 
     "sontungexpt/stcursorword",
@@ -187,4 +184,16 @@ require('pckr').add {
     "obsidian-nvim/obsidian.nvim",
 
     "mlr-msft/vim-loves-dafny",
+
+    {
+        "zenbones-theme/zenbones.nvim",
+        requires = "rktjmp/lush.nvim",
+    },
+
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        after = { 'nvim-treesitter' },
+    }
+
+
 }

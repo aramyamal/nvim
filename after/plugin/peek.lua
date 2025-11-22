@@ -15,7 +15,8 @@ peek.setup({
 
     update_on_change = true,
 
-    app = 'webview', -- 'webview', 'browser', string or a table of strings
+    app = { 'cromite', '--app=%s' }, -- 'webview', 'browser', string or a table of strings
+    -- app = 'webview',
     -- explained below
 
     filetype = { 'markdown' }, -- list of filetypes to recognize as markdown
