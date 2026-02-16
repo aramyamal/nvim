@@ -193,7 +193,14 @@ require('pckr').add {
     {
         'MeanderingProgrammer/render-markdown.nvim',
         after = { 'nvim-treesitter' },
-    }
+    },
 
+    {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup({})
+        end,
+    },
 
 }

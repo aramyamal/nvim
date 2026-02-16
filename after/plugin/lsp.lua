@@ -19,6 +19,17 @@ lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
+-- vim.lsp.config.rust_analyzer = {
+--     settings = {
+--         ["rust-analyzer"] = {
+--             check = {
+--                 command = "clippy",
+--                 extraArgs = { "--", "-W", "clippy::all" },
+--             },
+--         },
+--     },
+-- }
+
 --- if you want to know more about lsp-zero and mason.nvim
 --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
