@@ -5,6 +5,7 @@ require("conform").setup({
         -- Conform will run the first available formatter
         markdown = { "prettierd", "prettier", stop_after_first = true },
         c = { "comment_pragma_omp", "clang-format", "uncomment_pragma_omp" },
+        -- lean = { "leanfmt" },
     },
     formatters = {
         comment_pragma_omp = {
@@ -17,11 +18,17 @@ require("conform").setup({
             args = { "-i", "s/\\/\\/\\/ *#pragma omp/#pragma omp/g", "$FILENAME" },
             stdin = false,
         },
+
+        -- leanfmt = {
+        --     command = "lean",
+        --     args = { "--run", "fmt", "$FILENAME" },
+        --     stdin = false,
+        -- },
     }
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.md", "*.c" },
+    pattern = { "*.md", "*.c" --[[ , "*.lean" ]] },
     callback = function(args)
         require("conform").format({ bufnr = args.buf })
     end,

@@ -190,10 +190,10 @@ require('pckr').add {
         requires = "rktjmp/lush.nvim",
     },
 
-    {
-        'MeanderingProgrammer/render-markdown.nvim',
-        after = { 'nvim-treesitter' },
-    },
+    -- {
+    --     'MeanderingProgrammer/render-markdown.nvim',
+    --     after = { 'nvim-treesitter' },
+    -- },
 
     {
         "folke/todo-comments.nvim",
@@ -203,4 +203,45 @@ require('pckr').add {
         end,
     },
 
+    {
+        "Julian/lean.nvim",
+        event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+
+        requires = {
+            -- optional dependencies:
+
+            -- a completion engine
+            --    hrsh7th/nvim-cmp or Saghen/blink.cmp are popular choices
+
+            'nvim-telescope/telescope.nvim', -- for Lean-specific pickers
+            'andymass/vim-matchup',          -- for enhanced % motion behavior
+            'andrewradev/switch.vim',        -- for switch support
+            'tomtom/tcomment_vim',           -- for commenting
+        },
+
+    },
+
+    {
+        'andymass/vim-matchup',
+        setup = function()
+            -- may set any options here
+            vim.g.matchup_matchparen_offscreen = { method = "popup" }
+        end
+    },
+
+    {
+        "Isrothy/neominimap.nvim",
+        version = "v3.x.x",
+        config = function()
+            -- basic config
+            vim.g.neominimap = {
+                auto_enable = true,
+            }
+
+            -- your ONLY keymap
+            vim.keymap.set("n", "<leader>mm", "<cmd>Neominimap WinToggle<cr>", {
+                desc = "Toggle minimap (window)"
+            })
+        end,
+    },
 }
