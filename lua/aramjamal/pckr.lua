@@ -243,5 +243,6 @@ require('pckr').add {
                 desc = "Toggle minimap (window)"
             })
         end,
+        "lervag/vimtex",
     },
 }

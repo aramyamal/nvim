@@ -6,6 +6,7 @@ require("conform").setup({
         markdown = { "prettierd", "prettier", stop_after_first = true },
         c = { "comment_pragma_omp", "clang-format", "uncomment_pragma_omp" },
         -- lean = { "leanfmt" },
+        tex = { "tex-fmt" },
     },
     formatters = {
         comment_pragma_omp = {

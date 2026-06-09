@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = "_"
 
 -- Open file explorer
 vim.keymap.set(
@@ -26,6 +27,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Yank into system clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("v", "<C-c>", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Delete into system clipboard

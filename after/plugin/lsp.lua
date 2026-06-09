@@ -71,6 +71,14 @@ vim.keymap.set(
     { desc = "LSP: Show Line Diagnostics" }
 )
 
+-- Show references of where used
+vim.keymap.set(
+    "n",
+    "<leader>gr",
+    function() vim.diagnostic.open_float() end,
+    { desc = "LSP: Show Line Diagnostics" }
+)
+
 -- Jump to next diagnostic with g + [ or g + ]
 vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
 vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
