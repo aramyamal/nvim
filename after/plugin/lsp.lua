@@ -38,12 +38,20 @@ require('mason-lspconfig').setup({
     automatic_enable = {
         exclude = {
             "ltex_plus",
+            "ltex",
         }
     }
 })
 
+local function dummy_commands(names)
+    local t = {}
+    for _, name in ipairs(names) do
+        t["\\" .. name] = "dummy"
+    end
+    return t
+end
+
 vim.lsp.config.ltex_plus = {
-    name = "ltex",
     on_attach = function(client, bufnr)
         require("ltex_extra").setup {
             load_langs = { "en-US", "en-GB", "sv", "de" },
@@ -57,6 +65,33 @@ vim.lsp.config.ltex_plus = {
                 ['en-GB'] = { 'PROFANITY' },
                 ['sv'] = { 'PROFANITY' },
                 ['de'] = { 'PROFANITY' },
+            },
+            latex = {
+                ignoredEnvironments = {
+                    "figure",
+                    "pcvstack",
+                    "procedure",
+                    "pcb",
+                    "pcheme",
+                },
+                commands = vim.tbl_extend("force",
+                    dummy_commands({
+                        -- algorithms
+                        "setup", "keygen", "kg", "sign", "eval", "verify", "ver",
+                        -- schemes/notions
+                        "con", "whuf", "MKHSprimitive", "mkhs", "mklhs",
+                        "HUFCMA", "wHUFCMA", "EXP", "coCDH", "dlog",
+                        -- parties
+                        "adv", "reduction", "challenger", "reductioncoCDH",
+                        -- text abbreviations
+                        "etal", "eg", "ie", "myparse",
+                        "Aa", "Cc",
+                    }), {
+                        -- cryptocode commands with arguments
+                        ["\\procedure[]{}{}"] = "ignore",
+                        ["\\pcalgostyle{}"] = "ignore",
+                    }
+                ),
             },
         },
     },

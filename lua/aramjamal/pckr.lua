@@ -36,10 +36,10 @@ require('pckr').add {
 
     {
         'nvim-treesitter/nvim-treesitter',
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
+        -- run = function()
+        --     local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        --     ts_update()
+        -- end,
 
     },
 
@@ -94,7 +94,6 @@ require('pckr').add {
 
     "nvim-lua/plenary.nvim",
 
-    { 'nfrid/markdown-togglecheck' },
     { 'nfrid/treesitter-utils' },
 
     --  'mfussenegger/nvim-jdtls';
@@ -235,7 +234,7 @@ require('pckr').add {
         config = function()
             -- basic config
             vim.g.neominimap = {
-                auto_enable = true,
+                auto_enable = false,
             }
 
             -- your ONLY keymap
@@ -243,6 +242,10 @@ require('pckr').add {
                 desc = "Toggle minimap (window)"
             })
         end,
+    },
+    {
         "lervag/vimtex",
     },
+    'Thiago4532/mdmath.nvim',
+    "ajbucci/ipynb.nvim",
 }

@@ -1,3 +1,9 @@
 -- require('render-markdown').setup({
 --     completions = { lsp = { enabled = true } },
+--     file_types = { 'markdown', 'rust' },
+--     latex = {
+--         enabled = true,
+--         converter = 'latex2text', -- uses pylatexenc
+--         highlight = 'RenderMarkdownMath',
+--     },
 -- })
